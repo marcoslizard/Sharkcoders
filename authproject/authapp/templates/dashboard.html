@@ -1,0 +1,6 @@
+<h2>Bem-vindo , {{ user.username }!}</h2>
+<p>Esta é uma página protegida</p>
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Sair</button>
+</form>
