@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    <h2>Entrar</h2>
+    {% if form.errors %}
+      <p> style="color: red; ">Usuário ou senha incorretos.</p>
+    {% endif %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button  type="submit">Entrar</button>
+    </form>
+{% endblock%}

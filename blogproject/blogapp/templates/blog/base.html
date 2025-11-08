@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Blog{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1><a href="{%url 'post_list' %}"> Meu Blog</a></h1>
+        {% if user.is_authenticated %}
+            <p>Olá, {{user.username}} <form method="post" action="{% url 'logout' %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;">
+          Sair
+        </button>
+    </form></p>
+        {% else %}
+            <p><a href="{% url 'login' %}">Entrar</a></p>
+        {% endif %}
+        <hr>
+    </header>
+    {% block content %}{%endblock%}
+</body>
+</html>
+
+
+
+
+</body>
+</html>
