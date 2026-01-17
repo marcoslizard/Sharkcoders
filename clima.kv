@@ -1,0 +1,26 @@
+<TelaClima>:
+    orientation: "vertical"
+    padding: 20
+    spacing: 10
+
+    TextInput:
+        id: entrada
+        hint_text: "Escreve o nome da cidade"
+        size_hint_y: None
+        height: "40dp"
+        multiline: False
+
+    Button:
+        text: "Pesquisar"
+        size_hint_y: None
+        height: "40dp"
+        on_release: root.buscar_clima()
+
+    Label:
+        text: root.resultado
+        font_size: 18
+        halign: "center"
+        valign: "middle"
+        text_size: self.size
+
+
