@@ -15,6 +15,8 @@ COR_VERDE = "#22c55e"
 COR_VERMELHO = "#ef4444"
 
 
+#COR_TESTE = "#FEED5A"
+
 class Empresa:
     def __init__(self, nome, preco_inicial, volatilidade):
         self.nome = nome
@@ -52,19 +54,19 @@ root.configure(bg=COR_FUNDO_APP)
 frame = tk.Frame(root, bg=COR_FUNDO_APP)
 frame.pack(fill="x", padx=15, pady=10)
 
-control_frame = tk.Frame(frame, bg=COR_FUNDO_APP)
-control_frame.grid(row=0, column=0, sticky="nw")
+control_moldura = tk.Frame(frame, bg=COR_FUNDO_APP)
+control_moldura.grid(row=0, column=0, sticky="nw")
 
 empresa_selecionada = tk.StringVar()
-combo = ttk.Combobox(control_frame, textvariable=empresa_selecionada, state="readonly", font=("Arial", 11))
+combo = ttk.Combobox(control_moldura, textvariable=empresa_selecionada, state="readonly", font=("Arial", 11))
 combo['values'] = [e.nome for e in empresas]
 combo.current(0)
 combo.grid(row=0, column=0, columnspan=2, padx=5, pady=5, sticky="ew")
 
-btn_comprar = tk.Button(control_frame, text="Comprar", command=lambda: negociar(1), bg=COR_VERDE, fg="white", font=("Arial", 11, "bold"), width=10)
+btn_comprar = tk.Button(control_moldura, text="Comprar", command=lambda: negociar(1), bg=COR_VERDE, fg="white", font=("Arial", 11, "bold"), width=10)
 btn_comprar.grid(row=1, column=0, padx=5, pady=5)
 
-btn_vender = tk.Button(control_frame, text="Vender", command=lambda: negociar(-1), bg=COR_VERMELHO, fg="white", font=("Arial", 11, "bold"), width=10)
+btn_vender = tk.Button(control_moldura, text="Vender", command=lambda: negociar(-1), bg=COR_VERMELHO, fg="white", font=("Arial", 11, "bold"), width=10)
 btn_vender.grid(row=1, column=1, padx=5, pady=5)
 
 frame.grid_columnconfigure(1, weight=1)
